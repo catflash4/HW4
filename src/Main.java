@@ -49,12 +49,12 @@ public class Main {
         }
 
         //Задача 5
-        int ageForAttractions = 10;
-        if (ageForAttractions < 5)
+        int ageForAttractions = 14;
+        if (ageForAttractions <= 5)
         {
             System.out.println("Если возраст ребенка равен " + ageForAttractions + ", то ему нельзя кататься на аттракционе.");
         }
-        if (ageForAttractions > 5 && ageForAttractions <14)
+        if (ageForAttractions > 5 && ageForAttractions <= 14)
         {
             System.out.println("Если возраст ребенка равен " + ageForAttractions + ", то ему можно кататься на аттракционе только в сопровождении взрослого.");
         }
@@ -64,14 +64,32 @@ public class Main {
         }
 
         //Задача 6
-        int place = 0;
-        if (place  >  60) {
-            System.out.println("Если место под номером " + place  +   ", то   место стоячее");
+        int takenSeats = 101;
+        int alloverSeats = 102;
+        int freePlace = alloverSeats - takenSeats;
+        int maxSeatPlace = 60;
+        int freeSeatPlace;
+        int maxStandPlace = 42;
+        int freeStand;
+        if (takenSeats == maxSeatPlace)
+        {
+            freeStand = maxStandPlace ;
+        } else {
+            freeStand = alloverSeats - takenSeats;
         }
-        if (place  <= 60 && place != 0) {
-            System.out.println("Если место под номером " + place + ", то   место сидячее");
-        }   else {
-            System.out.println("Если мест " + place +  ", то вагон уже полностью забит ");
+        if(takenSeats < alloverSeats)
+        {
+            freeSeatPlace = maxSeatPlace - takenSeats;
+            System.out.println("В поезде есть место.");
+            if (freePlace < 61 && freeSeatPlace > 0)
+            {
+                System.out.println("В поезде щас " + freeSeatPlace + " сидячих мест и " + maxStandPlace + " стоячих мест");
+            } else if (freeSeatPlace <= 0) {
+                System.out.println("В поезде щас нету сидячих мест но есть " + freeStand + " стоячих мест");
+            }
+        }else
+        {
+            System.out.println("В поезде нету свободных мест");
         }
 
         //Задача 7
